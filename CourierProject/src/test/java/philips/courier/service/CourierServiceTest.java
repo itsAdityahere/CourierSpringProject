@@ -45,11 +45,8 @@ class CourierServiceImplTest {
         request.setDate(LocalDate.now());
 
         when(courierRepository.save(any(Courier.class))).thenReturn(new Courier());
-
         ResponseDto responseDto = courierService.createConsignment(request);
-
-        assertThat(responseDto).isNotNull();
-        // Add assertions for other fields in the responseDto
+        assertThat(responseDto).isNotNull();  
     }
 
     @Test
@@ -65,7 +62,7 @@ class CourierServiceImplTest {
         ResponseDto responseDto = courierService.updateConsignmentStatus(request);
 
         assertThat(responseDto).isNotNull();
-        // Add assertions for other fields in the responseDto
+        
     }
 
     @Test
@@ -77,7 +74,7 @@ class CourierServiceImplTest {
         ResponseDto responseDto = courierService.deleteConsignment(consignmentNumber);
 
         assertThat(responseDto).isNotNull();
-        // Add assertions for other fields in the responseDto
+       
     }
 
     @Test
@@ -88,14 +85,14 @@ class CourierServiceImplTest {
 
         List<UUID> consignmentNoList = courierService.fetchAllConsignments();
         assertThat(consignmentNoList).hasSize(courierList.size());
-        // Add more assertions if needed
+       
     }
 
     @Test
     void testFetchCourierDetails() {
         UUID consignmentNumber = UUID.randomUUID();
         Courier expectedCourier = new Courier();
-        // Configure mock data
+        // Configuring mock data
         when(courierRepository.findById(any(UUID.class))).thenReturn(Optional.of(expectedCourier));
 
         Courier fetchedCourier = courierService.fetchCourierDetails(consignmentNumber);
