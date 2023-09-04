@@ -53,12 +53,8 @@ public class CourierControllerTest {
 
                 mockMvc.perform(get("/couriers/fetch-all"))
                                 .andExpect(status().isOk())
-                                .andExpect(jsonPath("$[0]").value(consignmentNoList.get(0).toString())) // Adjust the
-                                                                                                        // array index
-                                                                                                        // accordingly
-                                .andExpect(jsonPath("$[1]").value(consignmentNoList.get(1).toString())); // Adjust the
-                                                                                                         // array index
-                                                                                                         // accordingly
+                                .andExpect(jsonPath("$[0]").value(consignmentNoList.get(0).toString())) 
+                                .andExpect(jsonPath("$[1]").value(consignmentNoList.get(1).toString())); 
         }
 
         @Test
