@@ -12,7 +12,6 @@ public class ErrorController {
 
         @ExceptionHandler(Exception.class)
         public ResponseEntity<String> handleException(Exception ex) {
-            // Customize the error response
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("An error occurred: " + ex.getMessage());
         }
